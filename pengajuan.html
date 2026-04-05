@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengajuan Kredit - Bintang Motor</title>
+    <meta name="description" content="Ajukan kredit motor HONDA Anda sekarang di Bintang Motor. Proses mudah dan cepat.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="https://images.glints.com/unsafe/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/09c36bd85a8df419eb7c11110ddaaa43.png" alt="Bintang Motor" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li><a href="galeri.html" class="nav-link">🏍️ Galeri</a></li>
+                    <li><a href="simulasi.html" class="nav-link">📊 Simulasi</a></li>
+                    <li><a href="pengajuan.html" class="nav-link active">📝 Pengajuan</a></li>
+                    <li><a href="kontak.html" class="nav-link">📞 Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero hero-small">
+            <div class="hero-content">
+                <h1>Pengajuan Kredit</h1>
+                <p>Isi form di bawah ini untuk memulai proses pengajuan kredit motor HONDA</p>
+            </div>
+        </section>
+
+        <section class="pengajuan container">
+            <div class="form-container">
+                <form id="pengajuanForm">
+                    <h2><i class="fas fa-file-alt"></i> Form Pengajuan Kredit</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
+                            <input type="text" id="nama" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nohp"><i class="fas fa-phone"></i> No. WhatsApp</label>
+                            <input type="tel" id="nohp" required pattern="[0-9]{10,13}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamat"><i class="fas fa-map-marker-alt"></i> Alamat Lengkap</label>
+                        <textarea id="alamat" rows="3" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="motor"><i class="fas fa-motorcycle"></i> Pilihan Motor</label>
+                            <select id="motor" required>
+                                <option value="">Pilih Motor</option>
+                                <option value="Honda Beat">Honda Beat - Rp 18.5 jt</option>
+                                <option value="Honda Vario 160">Honda Vario 160 - Rp 27.5 jt</option>
+                                <option value="Honda PCX 160">Honda PCX 160 - Rp 32 jt</option>
+                                <option value="Honda ADV 160">Honda ADV 160 - Rp 38.5 jt</option>
+                                <option value="Honda CBR 150R">Honda CBR 150R - Rp 36 jt</option>
+                                <option value="Honda Scoopy">Honda Scoopy - Rp 19 jt</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tenorPengajuan">Tenor</label>
+                            <select id="tenorPengajuan">
+                                <option value="12">12 Bulan</option>
+                                <option value="24">24 Bulan</option>
+                                <option value="36">36 Bulan</option>
+                                <option value="48">48 Bulan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="setuju" required>
+                            Saya setuju dengan <a href="#" style="color: #CC0000;">syarat & ketentuan</a> dan bersedia menerima info promo via WhatsApp
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Kirim Pengajuan</button>
+                </form>
+
+                <div id="successMessage" class="success-message" style="display: none;">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Pengajuan Berhasil!</h3>
+                    <p>Terima kasih! Tim kami akan menghubungi Anda dalam 24 jam via WhatsApp.</p>
+                    <div class="action-buttons">
+                        <a href="index.html" class="btn btn-secondary">Kembali ke Home</a>
+                        <a href="https://wa.me/6281234567890?text=Konfirmasi%20pengajuan%20kredit%20dari%20website" class="btn btn-primary" target="_blank">Buka WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-pengajuan">
+                <h3><i class="fas fa-info-circle"></i> Dokumen yang Diperlukan</h3>
+                <ul>
+                    <li>KTP asli & fotokopi</li>
+                    <li>Slip gaji / bukti penghasilan (untuk karyawan)</li>
+                    <li>KK / surat keterangan domisili</li>
+                    <li>NPWP (opsional)</li>
+                </ul>
+                <div class="proses-info">
+                    <h4>Proses Cepat</h4>
+                    <p>✅ Pengajuan online<br>✅ Approved 1-2 hari<br>✅ Serah terima minggu depan</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Bintang Motor. Dealer Resmi HONDA. Proses data aman & rahasia.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6281234567890?text=Saya%20ingin%20ajukan%20kredit%20motor%20HONDA" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        // Pengajuan Form Handler
+        document.getElementById('pengajuanForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (validateForm(this)) {
+                // Simulate submit
+                document.getElementById('pengajuanForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Log data for demo
+                const formData = {
+                    nama: document.getElementById('nama').value,
+                    nohp: document.getElementById('nohp').value,
+                    motor: document.getElementById('motor').value
+                };
+                console.log('Pengajuan data:', formData);
+                
+                // Scroll to success
+                document.getElementById('successMessage').scrollIntoView({behavior: 'smooth'});
+            }
+        });
+
+        // Pre-fill from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('motor')) {
+            const motorOptions = Array.from(document.getElementById('motor').options);
+            const targetMotor = urlParams.get('motor');
+            const option = motorOptions.find(opt => opt.value.includes(targetMotor));
+            if (option) {
+                option.selected = true;
+            }
+        }
+    </script>
+</body>
+</html>
+

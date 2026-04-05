@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Kredit - Bintang Motor</title>
+    <meta name="description" content="Hitung simulasi kredit motor HONDA Anda dengan mudah di Bintang Motor.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="https://images.glints.com/unsafe/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/09c36bd85a8df419eb7c11110ddaaa43.png" alt="Bintang Motor" class="logo-img">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+                    <li><a href="galeri.html" class="nav-link">🏍️ Galeri</a></li>
+                    <li><a href="simulasi.html" class="nav-link active">📊 Simulasi</a></li>
+                    <li><a href="pengajuan.html" class="nav-link">📝 Pengajuan</a></li>
+                    <li><a href="kontak.html" class="nav-link">📞 Kontak</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero hero-small">
+            <div class="hero-content">
+                <h1>Simulasi Kredit</h1>
+                <p>Hitung estimasi cicilan motor HONDA Anda</p>
+            </div>
+        </section>
+
+        <section class="simulasi container">
+            <div class="simulasi-form">
+                <form id="kreditForm">
+                    <div class="form-group">
+                        <label for="harga">Harga Motor (Rp)</label>
+                        <input type="number" id="harga" required min="10000000" max="50000000" value="18500000">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dp">Uang Muka (Rp)</label>
+                            <input type="number" id="dp" required min="1000000" max="20000000" value="3000000">
+                        </div>
+                        <div class="form-group">
+                            <label for="tenor">Tenor (bulan)</label>
+                            <select id="tenor" required>
+                                <option value="12">12 Bulan</option>
+                                <option value="24">24 Bulan</option>
+                                <option value="36">36 Bulan</option>
+                                <option value="48">48 Bulan</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Hitung Cicilan</button>
+                </form>
+
+                <div id="hasil" class="hasil" style="display: none;">
+                    <h3><i class="fas fa-calculator"></i> Hasil Simulasi</h3>
+                    <div class="hasil-grid">
+                        <div class="hasil-item">
+                            <span>Total Pinjaman:</span>
+                            <span id="totalPinjaman">Rp 0</span>
+                        </div>
+                        <div class="hasil-item">
+                            <span>Cicilan per Bulan:</span>
+                            <span id="cicilanBulan">Rp 0</span>
+                        </div>
+                        <div class="hasil-item">
+                            <span>Total Bayar:</span>
+                            <span id="totalBayar">Rp 0</span>
+                        </div>
+                        <div class="hasil-item">
+                            <span>Bunga Total:</span>
+                            <span id="bungaTotal">Rp 0</span>
+                        </div>
+                    </div>
+                    <p class="catatan">*Estimasi dengan bunga flat 1% per bulan. Syarat & ketentuan berlaku.</p>
+                    <div class="action-buttons">
+                        <a href="pengajuan.html" class="btn btn-primary">Ajukan Sekarang</a>
+                        <a href="https://wa.me/6281234567890?text=Saya%20tertarik%20cicilan%20Rp" target="_blank" class="btn btn-secondary" id="waLink">Hubungi WA</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="promo-simulasi">
+                <h3>Contoh Simulasi Populer</h3>
+                <div class="contoh-grid">
+                    <div class="contoh-card">
+                        <h4>Beat</h4>
+                        <p>DP 3jt | 12 bln<br><strong>Rp 1.300.000 /bln</strong></p>
+                    </div>
+                    <div class="contoh-card">
+                        <h4>PCX</h4>
+                        <p>DP 5jt | 24 bln<br><strong>Rp 1.200.000 /bln</strong></p>
+                    </div>
+                    <div class="contoh-card">
+                        <h4>ADV</h4>
+                        <p>DP 6jt | 36 bln<br><strong>Rp 900.000 /bln</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Ncang Izul Corporate 2026 Bintang Motor. Dealer Resmi HONDA.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Bintang%20Motor,%20mau%20simulasi%20kredit" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        // Simulasi Kredit JS
+        document.getElementById('kreditForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const harga = parseInt(document.getElementById('harga').value);
+            const dp = parseInt(document.getElementById('dp').value);
+            const tenor = parseInt(document.getElementById('tenor').value);
+            
+            const pinjaman = harga - dp;
+            const bungaPerBulan = 0.01; // 1% flat
+            const cicilan = (pinjaman * bungaPerBulan + (pinjaman / tenor));
+            
+            const totalBayar = Math.round(cicilan * tenor);
+            const bungaTotal = totalBayar - pinjaman;
+            
+            document.getElementById('totalPinjaman').textContent = formatRupiah(pinjaman);
+            document.getElementById('cicilanBulan').textContent = formatRupiah(Math.round(cicilan));
+            document.getElementById('totalBayar').textContent = formatRupiah(totalBayar);
+            document.getElementById('bungaTotal').textContent = formatRupiah(bungaTotal);
+            
+            document.getElementById('waLink').href += ` ${Math.round(cicilan).toLocaleString()}`;
+            document.getElementById('hasil').style.display = 'block';
+            document.getElementById('hasil').scrollIntoView({behavior: 'smooth'});
+        });
+
+        function formatRupiah(angka) {
+            return 'Rp ' + angka.toLocaleString('id-ID');
+        }
+
+        // Pre-fill from URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('harga')) {
+            document.getElementById('harga').value = urlParams.get('harga');
+        }
+    </script>
+</body>
+</html>
